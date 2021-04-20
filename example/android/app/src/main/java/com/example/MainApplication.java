@@ -3,7 +3,6 @@ package com.example;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.reactlibrary.RNAliVodUploadPackage;
 import com.reactnative.ivpusic.imagepicker.PickerPackage;
 //import com.imagepicker.ImagePickerPackage;
 import com.reactlibrary.RNAliVodUploadPackage;
@@ -27,7 +26,6 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNAliVodUploadPackage(),
             new PickerPackage(),
 //            new ImagePickerPackage(),
             new RNAliVodUploadPackage()
