@@ -142,6 +142,12 @@ RCT_REMAP_METHOD(refreshSTSToken, refreshWithAccessKeyId: (NSDictionary *)params
 }
 
 
+RCT_EXPORT_METHOD(cancel)
+{
+   [self.client cancel];
+}
+
+
 
 
 // https://programtip.com/en/art-48580

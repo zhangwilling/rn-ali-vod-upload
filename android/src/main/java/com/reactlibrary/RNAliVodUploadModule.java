@@ -146,6 +146,12 @@ public class RNAliVodUploadModule extends ReactContextBaseJavaModule {
     vodsVideoUploadClient.refreshSTSToken(accessKeyId, accessKeySecret, securityToken,expriedTime);
   }
 
+  //取消上传之后，上传流程结束，不能再调用resume恢复
+  @ReactMethod
+  public void cancel() {
+    vodsVideoUploadClient.cancel();
+  }
+  
 //
 //  @ReactMethod
 //  public void init(ReadableMap params, Promise promise) {
