@@ -42,19 +42,19 @@ export default class App extends Component {
               .then((video) => {
                 RNAliVodUpload.uploadVideo({
                   path: video.sourceURL
-                    ? video.sourceURL.replace('file://', '')
+                    ? video.path.replace('file://', '')
                     : video.path.replace('file://', ''),
-                  title: '',
+                  title: ' ',
                   desc: '',
                   cateId: 1,
                   tags: ' ',
                   templateGroupId: '7e07b96efe1a3c0abf94f043bcd50411',
                   isShowWaterMark: true,
                   expriedTime: '1618474826000',
-                  accessKeyId: 'STS.NTq8KoiVFoWZpP3g7a43fggvx',
-                  accessKeySecret: '6PfPyQNJGmXBGESPVjBsziFtzLkFKTktpjC23xd8A5MU',
+                  accessKeyId: 'STS.NUyqBVNZ5yGsYqgmwUyjGYEJH',
+                  accessKeySecret: 'EjFLd4q6KfP7t27tSxsneJbi2QteQAR74dwhsWCZyWUY',
                   securityToken:
-                    'CAIS+AF1q6Ft5B2yfSjIr5fEc/HbhIln2JWxcnaCgzc0OLxKiKLdmjz2IHFLeHltB+kZs/Q1lGhX5vcelqVoRoReREvCKM1565kPAKFn/WyG6aKP9rUhpMCPOwr6UmzWvqL7Z+H+U6muGJOEYEzFkSle2KbzcS7YMXWuLZyOj+wMDL1VJH7aCwBLH9BLPABvhdYHPH/KT5aXPwXtn3DbATgD2GM+qxsmufvjn5TEukaP1w2gl7dInemrfMj4NfsLFYxkTtK40NZxcqf8yyNK43BIjvwn0/AUpGme4YzNWQkJvEXXb/Cx7cduMAJ+YKwrAalAoeh9TS2aax8R/BqAAZrEcSnShU+NMu/EIiH3/zedO7rKTWD/2vQWRm+fNNoSansJ37uJrQeRoSzqb3dnmzLB8pa/D9vvYu5CKTlSvMVRF/TzZUaN2/zFb6qdGj2uPA7g0fnDG2gMRIogdzA0DgkRl3Ax8YnLdeweEyow+AcB+5Sp5eoWmLhi3axOiLZl',
+                    'CAIS+AF1q6Ft5B2yfSjIr5bMOvjio4UUzoWYW1fWiXcAdeVrtoDhqjz2IHFLeHltB+kZs/Q1lGhX5vcelqVoRoReREvCKM1565kPdb1/kG2G6aKP9rUhpMCPOwr6UmzWvqL7Z+H+U6muGJOEYEzFkSle2KbzcS7YMXWuLZyOj+wMDL1VJH7aCwBLH9BLPABvhdYHPH/KT5aXPwXtn3DbATgD2GM+qxsmufvjn5TEukaP1w2gl7dInemrfMj4NfsLFYxkTtK40NZxcqf8yyNK43BIjvwn0/AUpGme4YzNWQkJvEXXb/Cx7cduMAJ+YKwrAalAoeh9TS2aax8R/BqAAQsv5ad0GgOdBx2/RrhCCXnLVxS1WhS3aZ2A6ipeMxaJ94ES15HD8sw/+CLxL+Xc+C3OL8dY4g9mrem47KEVmjUDY35dPrhWa2RyDna5HXk51zaZNy+kErnZPrr3nHNQYqasB46/CoZB8ITB7rm14X4A6xqWmFET/iHphnuLO++9',
                 })
                   .then((res) => {
                     console.log('success', res);
