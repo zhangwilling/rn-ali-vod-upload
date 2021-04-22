@@ -49,7 +49,7 @@ RCT_EXPORT_METHOD(uploadVideo:(NSDictionary *)params
     
     // init video info
     VodSVideoInfo *svideoInfo = [VodSVideoInfo new];
-    svideoInfo.title = @" ";
+    svideoInfo.title = @"title";
     svideoInfo.cateId = cateId;
     svideoInfo.desc = desc;
     svideoInfo.templateGroupId = templateGroupId;
