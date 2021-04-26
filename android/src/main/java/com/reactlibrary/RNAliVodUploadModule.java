@@ -138,7 +138,7 @@ public class RNAliVodUploadModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public String getFirstFrameImage(String videoPath, final Promise promise) {
+  public void getFirstFrameImage(String videoPath, final Promise promise) {
     final String imagePath = Utils.getFirstFramePath(videoPath, reactContext);
     promise.resolve(imagePath);
   }
