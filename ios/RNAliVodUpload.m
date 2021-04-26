@@ -72,6 +72,8 @@ RCT_EXPORT_METHOD(uploadVideo:(NSDictionary *)params
     
 }
 
+
+
 /**
  上传成功
  
@@ -145,6 +147,20 @@ RCT_REMAP_METHOD(refreshSTSToken, refreshWithAccessKeyId: (NSDictionary *)params
 RCT_EXPORT_METHOD(cancel)
 {
    [self.client cancel];
+}
+
+
+RCT_EXPORT_METHOD(getFirstFrameImage:(NSString *)videoPath
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject) {
+    UIImage *img = [self getScreenShotImageFromVideoPath:videoPath];
+    
+    // Create path.
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *imgPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Image.png"];
+    //save image
+    [UIImagePNGRepresentation(img) writeToFile:imgPath atomically:YES];
+    resolve(imgPath);
 }
 
 

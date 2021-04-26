@@ -138,6 +138,12 @@ public class RNAliVodUploadModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
+  public String getFirstFrameImage(String videoPath, final Promise promise) {
+    final String imagePath = Utils.getFirstFramePath(videoPath, reactContext);
+    promise.resolve(imagePath);
+  }
+
+  @ReactMethod
   public void refreshSTSToken(ReadableMap params) {
     String accessKeyId = params.getString("accessKeyId");
     String accessKeySecret = params.getString("accessKeySecret");
