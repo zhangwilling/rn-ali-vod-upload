@@ -41,9 +41,7 @@ export default class App extends Component {
             })
               .then((video) => {
                 RNAliVodUpload.uploadVideo({
-                  path: video.sourceURL
-                    ? video.path.replace('file://', '')
-                    : video.path.replace('file://', ''),
+                  path: video.path.replace('file://', ''),
                   title: ' ',
                   desc: '',
                   cateId: 1,
@@ -78,11 +76,31 @@ export default class App extends Component {
               });
           }}
         >
-          <Text style={styles.welcome}>click test</Text>
+          <Text style={styles.welcome}>click test upload</Text>
         </TouchableOpacity>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+
+        <TouchableOpacity
+          onPress={() => {
+            ImageCropPicker.openPicker({
+              mediaType: 'video',
+            })
+              .then((video) => {
+                RNAliVodUpload.getFirstFrameImage(video.path.replace('file://', ''))
+                  .then((res) => {
+                    console.log('success', res);
+                    alert(res);
+                  })
+                  .catch((err) => {
+                    console.log('err', err.code, err.message);
+                  });
+              })
+              .catch((e) => {
+                console.log('[openPicker video WARN]', e);
+              });
+          }}
+        >
+          <Text style={styles.welcome}>click test getFirstFrameImage</Text>
+        </TouchableOpacity>
       </View>
     );
   }
