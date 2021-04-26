@@ -66,6 +66,8 @@ dependencies {
 
 ## Usage
 
+### uploadVideo 上传视频
+
 ```javascript
 import RNAliVodUpload from 'rn-ali-vod-upload';
 
@@ -112,6 +114,19 @@ function removeEmitter(emitters, emitterIdx) {
   const removedEmitter = emitters.splice(emitterIdx, 1)[0];
   removedEmitter.remove();
 }
+```
+
+### getFirstFrameImage 获取第一帧图片
+
+```ts
+RNAliVodUpload.getFirstFrameImage(video.path.replace('file://', ''))
+  .then((res) => {
+    console.log('success', res);
+    alert(res);
+  })
+  .catch((err) => {
+    console.log('err', err.code, err.message);
+  });
 ```
 
 ## 常见问题
