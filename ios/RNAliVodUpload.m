@@ -31,7 +31,8 @@ RCT_EXPORT_METHOD(uploadVideo:(NSDictionary *)params
 {
     self.resolve = resolve;
     self.reject = reject;
-    NSString *videoPath = [RCTConvert NSString:params[@"path"]];
+    NSString *path = [RCTConvert NSString:params[@"path"]];
+    NSString *videoPath = [path hasPrefix:@"file://"] ? [path stringByReplacingOccurrencesOfString:@"file://" withString:@"" ] : path;
     NSString *accessKeyId = [RCTConvert NSString:params[@"accessKeyId"]];
     NSString *accessKeySecret = [RCTConvert NSString:params[@"accessKeySecret"]];
     NSString *securityToken = [RCTConvert NSString:params[@"securityToken"]];
@@ -153,7 +154,8 @@ RCT_EXPORT_METHOD(cancel)
 RCT_EXPORT_METHOD(getFirstFrameImage:(NSString *)videoPath
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject) {
-    UIImage *img = [self getScreenShotImageFromVideoPath:videoPath];
+    NSString *path = [videoPath hasPrefix:@"file://"] ? [videoPath stringByReplacingOccurrencesOfString:@"file://" withString:@"" ] : videoPath;
+    UIImage *img = [self getScreenShotImageFromVideoPath:path];
     
     // Create path.
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);

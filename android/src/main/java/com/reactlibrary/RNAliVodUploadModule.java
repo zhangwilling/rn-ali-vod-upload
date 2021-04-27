@@ -44,7 +44,8 @@ public class RNAliVodUploadModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void uploadVideo(ReadableMap params, final Promise promise) {
-    String videoPath = params.getString("path");
+    String path = params.getString("path");
+    String videoPath = path.startsWith("file://") ? path.replace("file://", "") : path;
     String accessKeyId = params.getString("accessKeyId");
     String accessKeySecret = params.getString("accessKeySecret");
     String securityToken = params.getString("securityToken");
@@ -139,7 +140,8 @@ public class RNAliVodUploadModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void getFirstFrameImage(String videoPath, final Promise promise) {
-    final String imagePath = Utils.getFirstFramePath(videoPath, reactContext);
+    String path = videoPath.startsWith("file://") ? videoPath.replace("file://", "") : videoPath;
+    final String imagePath = Utils.getFirstFramePath(path , reactContext);
     promise.resolve(imagePath);
   }
 
