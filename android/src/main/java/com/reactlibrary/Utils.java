@@ -14,7 +14,7 @@ import java.util.UUID;
 public class Utils {
     final static String DIR_NAME = "vodUploadTemp";
     public static String getFirstFramePath(String videoPath, Context context) {
-        final String SD_PATH = Environment.getExternalStorageDirectory().getPath() + DIR_NAME;
+        final String SD_PATH = Environment.getExternalStorageDirectory().getPath() + "/" + DIR_NAME + "/";
         String fileName = UUID.randomUUID().toString() + ".JPEG";
         MediaMetadataRetriever mmr = new MediaMetadataRetriever();
         mmr.setDataSource(videoPath);
@@ -29,7 +29,7 @@ public class Utils {
         String savePath;
         if (Environment.getExternalStorageState().equals(
                 Environment.MEDIA_MOUNTED)) {
-            savePath = Environment.getExternalStorageDirectory().getPath() + DIR_NAME;
+            savePath = Environment.getExternalStorageDirectory().getPath() + "/" + DIR_NAME + "/";
         } else {
             Toast.makeText(context, "保存失败！", Toast.LENGTH_SHORT).show();
             return;
