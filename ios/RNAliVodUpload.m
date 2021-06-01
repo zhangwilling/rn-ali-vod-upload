@@ -61,7 +61,10 @@ RCT_EXPORT_METHOD(uploadVideo:(NSDictionary *)params
     
     // Create path.
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *imgPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Image.png"];
+    
+    NSString *imgName = [[self cNowTimestamp] stringByAppendingString:@".png"];
+    
+    NSString *imgPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:imgName];
     
     // Save image.
     [UIImagePNGRepresentation(img) writeToFile:imgPath atomically:YES];
@@ -73,6 +76,12 @@ RCT_EXPORT_METHOD(uploadVideo:(NSDictionary *)params
     
 }
 
+- (NSString *)cNowTimestamp {
+    NSDate *newDate = [NSDate date];
+    long int timeSp = (long)[newDate timeIntervalSince1970];
+    NSString *tempTime = [NSString stringWithFormat:@"%ld",timeSp];
+    return tempTime;
+}
 
 
 /**
@@ -159,7 +168,10 @@ RCT_EXPORT_METHOD(getFirstFrameImage:(NSString *)videoPath
     
     // Create path.
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *imgPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Image.png"];
+    
+    NSString *imgName = [[self cNowTimestamp] stringByAppendingString:@".png"];
+    
+    NSString *imgPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:imgName];
     //save image
     [UIImagePNGRepresentation(img) writeToFile:imgPath atomically:YES];
     resolve(imgPath);
