@@ -6,13 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "homepage": "https://github.com/zhangwilling/rn-ali-vod-upload",
   "keywords": [
     "react-native",
     "upload",
     "aliyun"
   ],
-  "author": "",
-  "license": "",
+  "author": "zhangwilling",
+  "license": "MIT",
   "peerDependencies": {
     "react-native": ">=0.41.2"
   }

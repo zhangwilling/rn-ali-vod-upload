@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.license       = package['license']
   s.homepage      = package['homepage']
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/zhangwilling/RNAliVodUpload.git", :tag => "master" }
+  s.source       = { :git => "https://github.com/zhangwilling/rn-ali-vod-upload.git", :tag => "master" }
   s.source_files  = "RNAliVodUpload/**/*.{h,m}"
   s.requires_arc = true
 
