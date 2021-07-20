@@ -1,4 +1,4 @@
-package com.reactlibrary;
+package com.reactlibrary.alivodupload;
 
 import android.content.Context;
 import android.graphics.Bitmap;
